@@ -1,0 +1,58 @@
+{
+  "name": "omniscient",
+  "version": "1.0.0",
+  "description": "A visual library for story characters and worldbuilding, with relationship graphs and timelines.",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build:editor": "esbuild src/editor/editor.js --bundle --minify --format=iife --global-name=OmniEditor --outfile=src/renderer/vendor/editor.js",
+    "dist": "npm run build:editor && electron-builder --win"
+  },
+  "keywords": [],
+  "author": "Jimiel Balitayo",
+  "license": "UNLICENSED",
+  "type": "commonjs",
+  "devDependencies": {
+    "@codemirror/autocomplete": "^6.19.0",
+    "@codemirror/commands": "^6.9.0",
+    "@codemirror/lang-markdown": "^6.3.4",
+    "@codemirror/language": "^6.11.3",
+    "@codemirror/search": "^6.5.11",
+    "@codemirror/state": "^6.5.2",
+    "@codemirror/view": "^6.38.6",
+    "@lezer/highlight": "^1.2.1",
+    "electron": "^38.8.6",
+    "electron-builder": "^26.15.3",
+    "esbuild": "^0.25.10"
+  },
+  "dependencies": {
+    "cytoscape": "^3.33.1",
+    "sql.js": "^1.13.0"
+  },
+  "productName": "Omniscient",
+  "build": {
+    "appId": "com.omniscient.app",
+    "productName": "Omniscient",
+    "files": [
+      "src/**/*",
+      "!src/editor/**",
+      "package.json"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Omniscient"
+    }
+  }
+}

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' omni-img: omni-world: data: blob:; style-src 'self' 'unsafe-inline'; script-src 'self'">
+  <title>Omniscient</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app" class="hidden">
+    <nav id="ribbon"></nav>
+
+    <aside id="cast">
+      <button id="cast-world" title="Switch world"><span class="cw-name"></span><span class="cw-sub"></span></button>
+      <div class="cast-tools">
+        <input id="cast-filter" type="search" placeholder="Find a character, place…" spellcheck="false">
+        <button id="cast-new" class="icon-btn" title="New character, place… (Ctrl+N)"></button>
+      </div>
+      <div id="cast-list"></div>
+      <div class="cast-foot">Drag anyone onto an event to put them in the scene</div>
+    </aside>
+
+    <main id="main"></main>
+
+    <aside id="inspector"></aside>
+  </div>
+
+  <div id="profiles" class="hidden">
+    <div class="pf-brand">Omniscient</div>
+    <h1>Choose a world</h1>
+    <div class="pf-row"></div>
+    <div class="pf-hint">← → to choose · Enter to open · E to edit</div>
+  </div>
+
+  <div id="lightbox" class="hidden">
+    <button class="lb-close" title="Close (Esc)">×</button>
+    <button class="lb-prev" title="Previous">‹</button>
+    <figure>
+      <img alt="">
+      <figcaption><input class="lb-caption" placeholder="Add a caption…"></figcaption>
+    </figure>
+    <button class="lb-next" title="Next">›</button>
+  </div>
+
+  <div id="picker" class="hidden"></div>
+  <div id="ctx-menu" class="menu hidden"></div>
+  <div id="modal" class="hidden"></div>
+  <div id="toast"></div>
+
+  <script src="../../node_modules/cytoscape/dist/cytoscape.min.js"></script>
+  <script src="vendor/editor.js"></script>
+  <script src="core.js"></script>
+  <script src="app.js"></script>
+  <script src="board.js"></script>
+  <script src="inspector.js"></script>
+  <script src="views.js"></script>
+  <script src="profiles.js"></script>
+</body>
+</html>
